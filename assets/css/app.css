@@ -1,0 +1,28 @@
+.home-middle-container {
+  background: green;
+  height:100px
+}
+.home-bottom-container {
+  background: blue;
+  height:300px
+}
+.form-container {
+  text-align: center;
+}
+.home-top-container .inner-container {
+  max-height:331px;
+}
+.ui-input-text {
+  display: inline-block;
+  width:50%;
+}
+.avatar {
+  margin:10px auto;
+  display: block;
+}
+.avatar-container {
+  display: none;
+}
+.ui-table-reflow.ui-responsive {
+ display: table;
+}

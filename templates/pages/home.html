@@ -1,7 +1,28 @@
-<div data-role="header">
+<div data-role="header" data-position="fixed">
   <h1>Git Info</h1>
 </div>
-<div data-role="content"></div>
-<div data-role="footer">
+<div data-role="content">
+  <div class="home-container">
+    <div class="ui-grid-a home-top-container">
+      <div class="ui-block-a inner-container left">
+        <div class="form-container">
+          <input type="text" name="gh-name" id="gh-username" value="" placeholder="Github Username">
+          <a href="#" data-role="button" data-icon="arrow-r" data-iconpos="notext" data-theme="c" data-inline="true" id="find-user">Find User</a>
+        </div>
+        <div class="avatar-container">
+          <img src="http://www.gravatar.com/avatar/12d350738eec24a8fdfee3177ee70cda?s=200" class="avatar" id="gh-avatar"/>
+          <fieldset class="ui-grid-a">
+              <div class="ui-block-a"><button type="submit" data-theme="c" id="get-user-activity">Get User Activity</button></div>
+              <div class="ui-block-b"><button type="submit" data-theme="b" id="get-user-repositores">Get User Repositories</button></div>
+          </fieldset>
+        </div>
+    </div>
+    <div class="ui-block-b inner-container right" id="events-container"></div>
+</div>
+    <div class="home-middle-container"></div>
+    <div class="home-bottom-container"></div>
+  </div>
+</div>
+<div data-role="footer" data-position="fixed">
   <h4>Version - 1.0.0</h4>
 </div>

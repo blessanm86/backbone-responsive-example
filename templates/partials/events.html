@@ -1,0 +1,18 @@
+<table data-role="table" id="table-column-toggle" class="ui-responsive table-stroke">
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Action</th>
+      <th>Repository</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each events}}
+    <tr>
+      <th>{{type}}</th>
+      <td>{{payload.action}}</td>
+      <td>{{repo.name}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
