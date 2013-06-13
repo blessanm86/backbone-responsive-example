@@ -12,17 +12,21 @@
         <div class="avatar-container">
           <img src="http://www.gravatar.com/avatar/12d350738eec24a8fdfee3177ee70cda?s=200" class="avatar" id="gh-avatar"/>
           <fieldset class="ui-grid-a">
-              <div class="ui-block-a"><button type="submit" data-theme="c" id="get-user-activity">Get User Activity</button></div>
-              <div class="ui-block-b"><button type="submit" data-theme="b" id="get-user-repositores">Get User Repositories</button></div>
+            <div class="ui-block-a"><button type="submit" data-theme="c" id="get-user-activity">Get User Activity</button></div>
+            <div class="ui-block-b"><button type="submit" data-theme="b" id="get-user-repositores">Get User Repositories</button></div>
           </fieldset>
         </div>
+      </div>
+      <div class="ui-block-b inner-container right" id="events-container"></div>
     </div>
-    <div class="ui-block-b inner-container right" id="events-container"></div>
-</div>
-    <div class="home-middle-container"></div>
-    <div class="home-bottom-container"></div>
+    <fieldset class="ui-grid-b" id="repo-bar">
+      <div class="ui-block-a"><button type="submit" data-theme="b" id="all-repos">All</button></div>
+      <div class="ui-block-b"><button type="submit" data-theme="b" id="source-repos">Source's</button></div>
+      <div class="ui-block-c"><button type="submit" data-theme="b" id="fork-repos">Fork's</button></div>
+    </fieldset>
+    <div id="repos-container"></div>
   </div>
 </div>
-<div data-role="footer" data-position="fixed">
+<div data-role="footer" data-position="fixed" data-tap-toggle="false">
   <h4>Version - 1.0.0</h4>
 </div>

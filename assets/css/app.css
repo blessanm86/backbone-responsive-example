@@ -1,11 +1,3 @@
-.home-middle-container {
-  background: green;
-  height:100px
-}
-.home-bottom-container {
-  background: blue;
-  height:300px
-}
 .form-container {
   text-align: center;
 }
@@ -25,4 +17,7 @@
 }
 .ui-table-reflow.ui-responsive {
  display: table;
+}
+#repo-bar {
+  display:none;
 }

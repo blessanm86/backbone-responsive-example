@@ -64,7 +64,15 @@ define([
       });
     },
     getUserRepositories: function() {
-      console.log('getUserRepositories');
+      var me = this,
+          url = 'https://api.github.com/users/'+this.input.val()+'/repos';
+      $.get(url, function(data) {
+        if (data.length) {
+          $('#repo-bar').show();
+          $('#repos-container').html(Handlebars.partials.repos({repos:data}));
+          $(document).trigger('create');
+        }
+      });
     }
   });
   
