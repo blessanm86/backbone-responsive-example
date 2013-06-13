@@ -7,13 +7,17 @@ define([
 
   var Router = Backbone.Router.extend({
     routes : {
-    '': 'goToHome',
+      '': 'goToHomePage',
+      'activity/:user': 'goToActivityPage'
     },
     initialize : function() {
       this.firstPage = true;
     },
-    goToHome: function() {
+    goToHomePage: function() {
       this.changePage(new HomeView());
+    },
+    goToActivityPage: function(user) {
+      console.info(user);
     },
     changePage : function(page,reverse, transition) {
       reverse = reverse? reverse: false;

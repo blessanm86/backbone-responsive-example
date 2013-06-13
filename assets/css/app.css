@@ -18,6 +18,8 @@
 .ui-table-reflow.ui-responsive {
  display: table;
 }
-#repo-bar {
+
+/* Hiding headers and footers for the individual pages*/
+#activity-header {
   display:none;
 }

@@ -1,0 +1,23 @@
+<fieldset class="ui-grid-b" id="repo-bar">
+  <div class="ui-block-a"><button type="submit" data-theme="b" id="all-repos">All</button></div>
+  <div class="ui-block-b"><button type="submit" data-theme="b" id="source-repos">Source's</button></div>
+  <div class="ui-block-c"><button type="submit" data-theme="b" id="fork-repos">Fork's</button></div>
+</fieldset>
+<table data-role="table" id="table-column-toggle" class="ui-responsive table-stroke">
+  <thead>
+    <tr>
+      <th>Repositories</th>
+      <th>Stars</th>
+      <th>Forks</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each repos}}
+    <tr>
+      <th>{{name}}</th>
+      <th>{{watchers}}</th>
+      <th>{{forks}}</th>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,3 +1,3 @@
-.ui-grid-a>:nth-child(n) {
+.ui-grid-a>:nth-child(n), .ui-grid-b>:nth-child(n) {
   width:100%;
 }

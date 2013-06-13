@@ -5,7 +5,7 @@ requirejs.config({
     'jquerymobile': 'libs/jquery-mobile-1.3.1',
     'underscore': 'libs/underscore-1.4.4',
     'backbone': 'libs/backbone-1.0.0',
-    'handlebars': 'libs/handlebars-runtime',
+    'handlebars': 'libs/handlebars-runtime'
   },
   shim: {
     'underscore': {
@@ -24,12 +24,13 @@ require([
   'underscore',
   'backbone',
   'handlebars',
-  'router',
+  'controller',
+  'views/homeView',
   'events',
   'jquerymobile',
   'pageTemplates',
   'partialTemplates'
-], function($, _, Backbone, Handlebars, Router) {
-  new Router();
+], function($, _, Backbone, Handlebars, Controller,HomeView) {
+  Controller.goToHomePage(HomeView);
   Backbone.history.start();
 });

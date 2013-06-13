@@ -1,7 +1,10 @@
 define([
   'backbone',
   'handlebars',
-], function(Backbone, Handlebars) {
+  'controller',
+  'views/activityView',
+  'views/repoView'
+], function(Backbone, Handlebars, Controller, ActivityView, RepoView) {
   var HomeView = Backbone.View.extend({
     template: Handlebars.templates.home(),
     events :function(){ 
@@ -54,25 +57,10 @@ define([
       });
     },
     getUserActivity: function() {
-      var me = this,
-          url = 'https://api.github.com/users/'+this.input.val()+'/events';
-      $.get(url, function(data) {
-        if (data.length) {
-          $('#events-container').html(Handlebars.partials.events({events:data}));
-          $(document).trigger('create');
-        }
-      });
+      Controller.goToActivityPage(ActivityView,{user: this.input.val(), el: '#events-container'});
     },
     getUserRepositories: function() {
-      var me = this,
-          url = 'https://api.github.com/users/'+this.input.val()+'/repos';
-      $.get(url, function(data) {
-        if (data.length) {
-          $('#repo-bar').show();
-          $('#repos-container').html(Handlebars.partials.repos({repos:data}));
-          $(document).trigger('create');
-        }
-      });
+      Controller.goToRepoPage(RepoView,{user: this.input.val(), el: '#repos-container'});
     }
   });
   

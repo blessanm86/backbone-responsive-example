@@ -1,0 +1,24 @@
+<div data-role="header" data-position="fixed" id="activity-header">
+  <h1>Github Activity</h1>
+</div>
+<table data-role="table" id="table-column-toggle" class="ui-responsive table-stroke">
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Action</th>
+      <th>Repository</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each events}}
+    <tr>
+      <th>{{type}}</th>
+      <td>{{payload.action}}</td>
+      <td>{{repo.name}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+  <h4>Version - 1.0.0</h4>
+</div>
