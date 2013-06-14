@@ -8,11 +8,13 @@ define([
       return {};
     },
     initialize: function(){
+      //this.model = {events:[]};
+      //this.render();
       this.getUserActivity();
     },
     render: function() {      
       this.$el.html(this.template(this.model));
-      $(document).trigger('create');
+      this.$el.trigger('pagecreate');
       return this;
     },
     getUserActivity: function() {

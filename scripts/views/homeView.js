@@ -1,10 +1,10 @@
 define([
   'backbone',
   'handlebars',
-  'controller',
+  'globals',
   'views/activityView',
   'views/repoView'
-], function(Backbone, Handlebars, Controller, ActivityView, RepoView) {
+], function(Backbone, Handlebars, Globals, ActivityView, RepoView) {
   var HomeView = Backbone.View.extend({
     template: Handlebars.templates.home(),
     events :function(){ 
@@ -57,10 +57,10 @@ define([
       });
     },
     getUserActivity: function() {
-      Controller.goToActivityPage(ActivityView,{user: this.input.val(), el: '#events-container'});
+      //Controller.goToActivityPage(ActivityView,{user: this.input.val(), el: '#events-container'});
     },
     getUserRepositories: function() {
-      Controller.goToRepoPage(RepoView,{user: this.input.val(), el: '#repos-container'});
+      //Controller.goToRepoPage(RepoView,{user: this.input.val(), el: '#repos-container'});
     }
   });
   

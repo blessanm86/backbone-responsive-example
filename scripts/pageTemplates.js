@@ -20,10 +20,10 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  buffer += "<div data-role=\"header\" data-position=\"fixed\" id=\"activity-header\">\r\n  <h1>Github Activity</h1>\r\n</div>\r\n<table data-role=\"table\" id=\"table-column-toggle\" class=\"ui-responsive table-stroke\">\r\n  <thead>\r\n    <tr>\r\n      <th>Event</th>\r\n      <th>Action</th>\r\n      <th>Repository</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    ";
+  buffer += "<div data-role=\"header\" data-position=\"fixed\">\r\n  <h1>Github Activity</h1>\r\n</div>\r\n<div data-role=\"content\">\r\n<table data-role=\"table\" id=\"table-column-toggle\" class=\"ui-responsive table-stroke\">\r\n  <thead>\r\n    <tr>\r\n      <th>Event</th>\r\n      <th>Action</th>\r\n      <th>Repository</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    ";
   stack1 = helpers.each.call(depth0, depth0.events, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n  </tbody>\r\n</table>\r\n<div data-role=\"footer\" data-position=\"fixed\" data-tap-toggle=\"false\">\r\n  <h4>Version - 1.0.0</h4>\r\n</div>";
+  buffer += "\r\n  </tbody>\r\n</table>\r\n</div>\r\n<div data-role=\"footer\" data-position=\"fixed\" data-tap-toggle=\"false\">\r\n  <h4>Version - 1.0.0</h4>\r\n</div>";
   return buffer;
   });
 templates['home'] = template(function (Handlebars,depth0,helpers,partials,data) {

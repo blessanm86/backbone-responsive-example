@@ -1,3 +1,3 @@
 define({
-  router: undefined
+  controller: undefined
 });
