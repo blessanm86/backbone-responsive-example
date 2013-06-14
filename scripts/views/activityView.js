@@ -1,7 +1,8 @@
 define([
   'backbone',
   'handlebars',
-], function(Backbone, Handlebars) {
+  'globals'
+], function(Backbone, Handlebars, Globals) {
   var ActivityView = Backbone.View.extend({
     template: Handlebars.templates.activity,
     events :function(){        
@@ -10,11 +11,12 @@ define([
     initialize: function(){
       //this.model = {events:[]};
       //this.render();
+      this.model = {isPhone:Globals.controller.isPhone};
       this.getUserActivity();
     },
-    render: function() {      
+    render: function() {
       this.$el.html(this.template(this.model));
-      this.$el.trigger('pagecreate');
+      this.$el.trigger('create');
       return this;
     },
     getUserActivity: function() {
@@ -22,7 +24,7 @@ define([
           url = 'https://api.github.com/users/'+this.options.user+'/events';
       $.get(url, function(data) {
         if (data.length) {
-          me.model = {events:data};
+          me.model.events = data;
           me.render();
         }
       });

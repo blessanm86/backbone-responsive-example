@@ -1,7 +1,8 @@
 define([
   'jquerymobile',
-  'views/homeView'
-], function($mobile, HomeView) {
+  'views/homeView',
+  'views/activityView'
+], function($mobile, HomeView, ActivityView) {
   var Controller = {
     firstPage: true,
     isPhone: false,
@@ -18,8 +19,8 @@ define([
     goToHomePage: function() {
       this.changePage(new HomeView(), 'home-page');
     },
-    goToActivityPage: function(page, options) {
-      this.isPhone? this.changePage(new page({user: options.user}), 'activity-page') : new page(options);      
+    goToActivityPage: function(options) {
+      this.isPhone? this.changePage(new ActivityView({user: options.user}), 'activity-page') : new ActivityView(options);      
     },
     goToRepoPage: function(page, options) {
       new page(options);

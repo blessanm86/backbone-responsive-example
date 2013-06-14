@@ -57,7 +57,7 @@ define([
       });
     },
     getUserActivity: function() {
-      //Controller.goToActivityPage(ActivityView,{user: this.input.val(), el: '#events-container'});
+      Globals.controller.goToActivityPage({user: this.input.val(), el: '#events-container'});
     },
     getUserRepositories: function() {
       //Controller.goToRepoPage(RepoView,{user: this.input.val(), el: '#repos-container'});

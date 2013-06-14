@@ -7,23 +7,39 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 
 function program1(depth0,data) {
   
+  
+  return "\r\n<div data-role=\"header\" data-position=\"fixed\">\r\n  <h1>Github Activity</h1>\r\n</div>\r\n<div data-role=\"content\">\r\n";
+  }
+
+function program3(depth0,data) {
+  
   var buffer = "", stack1;
-  buffer += "\r\n    <tr>\r\n      <th>";
+  buffer += "\r\n      <tr>\r\n        <th>";
   if (stack1 = helpers.type) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.type; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</th>\r\n      <td>"
+    + "</th>\r\n        <td>"
     + escapeExpression(((stack1 = ((stack1 = depth0.payload),stack1 == null || stack1 === false ? stack1 : stack1.action)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</td>\r\n      <td>"
+    + "</td>\r\n        <td>"
     + escapeExpression(((stack1 = ((stack1 = depth0.repo),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</td>\r\n    </tr>\r\n    ";
+    + "</td>\r\n      </tr>\r\n      ";
   return buffer;
   }
 
-  buffer += "<div data-role=\"header\" data-position=\"fixed\">\r\n  <h1>Github Activity</h1>\r\n</div>\r\n<div data-role=\"content\">\r\n<table data-role=\"table\" id=\"table-column-toggle\" class=\"ui-responsive table-stroke\">\r\n  <thead>\r\n    <tr>\r\n      <th>Event</th>\r\n      <th>Action</th>\r\n      <th>Repository</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    ";
-  stack1 = helpers.each.call(depth0, depth0.events, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+function program5(depth0,data) {
+  
+  
+  return "\r\n<div data-role=\"footer\" data-position=\"fixed\" data-tap-toggle=\"false\">\r\n  <h4>Version - 1.0.0</h4>\r\n</div>\r\n";
+  }
+
+  stack1 = helpers['if'].call(depth0, depth0.isPhone, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n  </tbody>\r\n</table>\r\n</div>\r\n<div data-role=\"footer\" data-position=\"fixed\" data-tap-toggle=\"false\">\r\n  <h4>Version - 1.0.0</h4>\r\n</div>";
+  buffer += "\r\n  <table data-role=\"table\" id=\"table-column-toggle\" class=\"ui-responsive table-stroke\">\r\n    <thead>\r\n      <tr>\r\n        <th>Event</th>\r\n        <th>Action</th>\r\n        <th>Repository</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      ";
+  stack1 = helpers.each.call(depth0, depth0.events, {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n    </tbody>\r\n  </table>\r\n</div>\r\n";
+  stack1 = helpers['if'].call(depth0, depth0.isPhone, {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
   return buffer;
   });
 templates['home'] = template(function (Handlebars,depth0,helpers,partials,data) {
