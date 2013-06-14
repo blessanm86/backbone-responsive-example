@@ -8,7 +8,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   
-  return "\r\n<div data-role=\"header\" data-position=\"fixed\">\r\n  <h1>Github Activity</h1>\r\n</div>\r\n<div data-role=\"content\">\r\n";
+  return "\r\n<div data-role=\"header\" data-position=\"fixed\">\r\n  <a href=\"#\" data-role=\"button\" data-icon=\"arrow-l\" data-iconpos=\"left\" data-inline=\"true\" id=\"back-btn\">Back</a>\r\n  <h1>Github Activity</h1>\r\n</div>\r\n<div data-role=\"content\">\r\n";
   }
 
 function program3(depth0,data) {
@@ -29,15 +29,15 @@ function program3(depth0,data) {
 function program5(depth0,data) {
   
   
-  return "\r\n<div data-role=\"footer\" data-position=\"fixed\" data-tap-toggle=\"false\">\r\n  <h4>Version - 1.0.0</h4>\r\n</div>\r\n";
+  return "\r\n</div>\r\n<div data-role=\"footer\" data-position=\"fixed\" data-tap-toggle=\"false\">\r\n  <h4>Version - 1.0.0</h4>\r\n</div>\r\n";
   }
 
   stack1 = helpers['if'].call(depth0, depth0.isPhone, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n  <table data-role=\"table\" id=\"table-column-toggle\" class=\"ui-responsive table-stroke\">\r\n    <thead>\r\n      <tr>\r\n        <th>Event</th>\r\n        <th>Action</th>\r\n        <th>Repository</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      ";
+  buffer += "\r\n  <table data-role=\"table\" class=\"ui-responsive table-stroke\">\r\n    <thead>\r\n      <tr>\r\n        <th>Event</th>\r\n        <th>Action</th>\r\n        <th>Repository</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      ";
   stack1 = helpers.each.call(depth0, depth0.events, {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\r\n    </tbody>\r\n  </table>\r\n</div>\r\n";
+  buffer += "\r\n    </tbody>\r\n  </table>\r\n";
   stack1 = helpers['if'].call(depth0, depth0.isPhone, {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   return buffer;

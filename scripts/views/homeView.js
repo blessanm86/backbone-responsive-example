@@ -7,6 +7,10 @@ define([
 ], function(Backbone, Handlebars, Globals, ActivityView, RepoView) {
   var HomeView = Backbone.View.extend({
     template: Handlebars.templates.home(),
+    attributes: {
+      'id': 'home-page',
+      'data-role': 'page'
+    },
     events :function(){ 
       var me = this,
         additionalEvents,
@@ -39,6 +43,7 @@ define([
     },
     render: function() {      
       this.$el.html(this.template);
+      //this.setElement(this.template);
       return this;
     },
     findUser: function(){
@@ -51,8 +56,7 @@ define([
         } else {
           me.avatarContainer.slideUp('slow', function() {
               alert('No User Found'); 
-          });
-          
+          });          
         }
       });
     },
