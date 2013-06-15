@@ -26,8 +26,6 @@ require([
   'backbone',
   'handlebars',
   'controller',
-  //'views/homeView',
-  //'views/activityView',
   'globals',
   'events',
   'jquerymobile',
@@ -35,10 +33,10 @@ require([
   'partialTemplates',
   'enquire'
 ], function($, _, Backbone, Handlebars, Controller,Globals) {
+  //This is to avoid cyclic dependencies in requirejs. controller depends on homeview, homeview depends on controller.
   Globals.controller = Controller;
+  
   Globals.controller.start();
-  Controller.goToHomePage();
-  //Controller.goToHomePage(HomeView);
-  //Controller.goToActivityPage(ActivityView, {user:'blessenm'});
+  Globals.controller.goToHomePage();
   Backbone.history.start();
 });

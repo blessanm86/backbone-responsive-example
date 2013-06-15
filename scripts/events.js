@@ -10,8 +10,7 @@ define([
       $('div[data-role="page"]').live('pagehide', function (event, ui) {
         if($(event.currentTarget).attr('data-dom-remove')) {
           $(event.currentTarget).remove();
-          console.log(event.currentTarget.id);
-        }        
+        }
       });
   });
 });

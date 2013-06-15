@@ -18,8 +18,3 @@
 .ui-table-reflow.ui-responsive {
  display: table;
 }
-
-/* Hiding headers and footers for the individual pages*/
-#activity-header {
-  display:none;
-}

@@ -1,8 +1,9 @@
 define([
   'backbone',
   'handlebars',
-  'globals'
-], function(Backbone, Handlebars, Globals) {
+  'globals',
+  'collections/activityCollection'
+], function(Backbone, Handlebars, Globals, ActivityCollection) {
   var ActivityView = Backbone.View.extend({
     template: Handlebars.templates.activity,
     attributes: {
@@ -23,37 +24,21 @@ define([
       return events;
     },
     initialize: function(){
-      this.model = {isPhone:Globals.controller.isPhone, events:[]};
-      this.render();
-      //this.model = {isPhone:Globals.controller.isPhone};
-      this.getUserActivity();
+      this.collection = new ActivityCollection([],{user: this.options.user});
+      this.pageData = {isPhone:Globals.controller.isPhone};
+      this.render();      
+      
+      this.listenToOnce(this.collection, 'reset', this.render);
+      this.collection.fetch({reset:true});
     },
     render: function() {
-      //var event;
-      //if(Globals.controller.isPhone) {
-      //  this.setElement(this.template(this.model));
-      //  event = 'pagecreate';
-      //} else {
-      //  this.$el.html(this.template(this.model));
-      //  event = 'create'
-      //}
-      //this.$el.trigger(event);
-      //return this;
-      this.$el.html(this.template(this.model));
+      this.pageData.events = this.collection.toJSON();
+      this.$el.html(this.template(this.pageData));
+      
       //JQM quirk - Need pagecreate event to get the headers and footers right.
       var event = Globals.controller.isPhone? 'pagecreate' : 'create';
       this.$el.trigger(event);
       return this;
-    },
-    getUserActivity: function() {
-      var me = this,
-          url = 'https://api.github.com/users/'+this.options.user+'/events';
-      $.get(url, function(data) {
-        if (data.length) {
-          me.model.events = data;
-          me.render();
-        }
-      });
     },
     goBackToHomePage: function(evt){
       evt.preventDefault();

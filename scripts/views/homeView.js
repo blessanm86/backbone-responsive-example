@@ -13,14 +13,11 @@ define([
     },
     events :function(){ 
       var me = this,
-        additionalEvents,
         events = 'ontouchstart' in document ? {
-          'touchstart #find-user': function(e){
-            e.preventDefault();
+          'touchstart #find-user': function(e){            
             me.findUser();
           },
-          'touchstart #get-user-activity': function(e){
-            e.preventDefault();
+          'touchstart #get-user-activity': function(e){            
             me.getUserActivity();
           },
           'touchstart #get-user-repositores': function(e){
@@ -46,7 +43,8 @@ define([
       //this.setElement(this.template);
       return this;
     },
-    findUser: function(){
+    findUser: function(evt) {
+      evt.preventDefault();
       var me = this,
           url = 'https://api.github.com/legacy/user/search/'+this.input.val();
       $.get(url, function(data) {
@@ -60,7 +58,8 @@ define([
         }
       });
     },
-    getUserActivity: function() {
+    getUserActivity: function(evt) {
+      evt.preventDefault();
       Globals.controller.goToActivityPage({user: this.input.val(), el: '#events-container'});
     },
     getUserRepositories: function() {
