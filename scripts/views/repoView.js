@@ -1,9 +1,10 @@
 define([
   'backbone',
   'handlebars',
-  'globals'
-], function(Backbone, Handlebars, Globals) {
-  var RepoView = Backbone.View.extend({
+  'globals',
+  'views/baseView'
+], function(Backbone, Handlebars, Globals, BaseView) {
+  var RepoView = BaseView.extend({
     template: Handlebars.templates.repo,
     attributes: {
       'id': 'repo-page',
@@ -42,19 +43,6 @@ define([
     goBackToHomePage: function(evt) {
       evt.preventDefault();
       Globals.controller.goToRepoCategoryPage();
-    },
-    close: function(id) {
-      if(id === this.attributes.id) {
-        Globals.events.off('page:destroy',this.close);
-        this.undelegateEvents();
-        this.$el.removeData().unbind();
-        if (Globals.controller.isPhone) {
-          this.remove();
-          Backbone.View.prototype.remove.call(this);
-        } else {
-          this.$el.empty();
-        }
-      }
     }
   });
   

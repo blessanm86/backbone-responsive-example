@@ -5,7 +5,7 @@ define([
   var BaseView = Backbone.View.extend({
     close: function(id) {
       if(id === this.attributes.id) {
-        Globals.events.off('page:destroy',this.close);
+        Globals.events.off('page:destroy',this.close,this);
         this.undelegateEvents();
         this.$el.removeData().unbind();
         if (Globals.controller.isPhone) {

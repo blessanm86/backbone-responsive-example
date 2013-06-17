@@ -2,9 +2,10 @@ define([
   'backbone',
   'handlebars',
   'globals',
+  'views/baseView',
   'collections/activityCollection'
-], function(Backbone, Handlebars, Globals, ActivityCollection) {
-  var ActivityView = Backbone.View.extend({
+], function(Backbone, Handlebars, Globals, BaseView, ActivityCollection) {
+  var ActivityView = BaseView.extend({
     template: Handlebars.templates.activity,
     attributes: {
       'id': 'activity-page',
@@ -48,19 +49,6 @@ define([
     goBackToHomePage: function(evt) {
       evt.preventDefault();
       Globals.controller.goToHomePage();
-    },
-    close: function(id) {
-      if(id === this.attributes.id) {
-        Globals.events.off('page:destroy',this.close);
-        this.undelegateEvents();
-        this.$el.removeData().unbind();
-        if (Globals.controller.isPhone) {
-          this.remove();
-          Backbone.View.prototype.remove.call(this);
-        } else {
-          this.$el.empty();
-        }
-      }
     }
   });
   
