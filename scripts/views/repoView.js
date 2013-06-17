@@ -23,7 +23,7 @@ define([
       return events;
     },
     initialize: function(){
-      this.pageData = {isPhone:Globals.controller.isPhone, repos: this.options.repos};
+      this.pageData = {isPhone:Globals.controller.isPhone, repos: this.options.repos, header: 'Git Repos'};
       
       //This didnt work for some reason. So using on method.
       //this.listenTo(Globals.events, 'page:destry', this.close);
@@ -41,10 +41,9 @@ define([
     },
     goBackToHomePage: function(evt) {
       evt.preventDefault();
-      Globals.controller.goToHomePage();
+      Globals.controller.goToRepoCategoryPage();
     },
     close: function(id) {
-      console.log('RepoView');
       if(id === this.attributes.id) {
         Globals.events.off('page:destroy',this.close);
         this.undelegateEvents();

@@ -25,7 +25,7 @@ define([
     },
     initialize: function(){
       this.collection = new ActivityCollection([],{user: this.options.user});
-      this.pageData = {isPhone:Globals.controller.isPhone};
+      this.pageData = {isPhone:Globals.controller.isPhone, header: 'Git Activity'};
       
       //This didnt work for some reason. So using on method.
       //this.listenTo(Globals.events, 'page:destry', this.close);
@@ -50,7 +50,6 @@ define([
       Globals.controller.goToHomePage();
     },
     close: function(id) {
-      console.log('ActivityView');
       if(id === this.attributes.id) {
         Globals.events.off('page:destroy',this.close);
         this.undelegateEvents();

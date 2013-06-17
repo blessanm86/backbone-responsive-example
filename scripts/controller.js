@@ -28,8 +28,12 @@ define([
           : new ActivityView(options);
     },
     goToRepoCategoryPage: function(options) {
-      this.isPhone? this.changePage({page: new RepoCategoryView({user: options.user})})
-          : new RepoCategoryView(options);
+      if($('#repo-category-page').length) {
+        this.changePage({id: '#repo-category-page',reverse: true});
+      } else {
+        this.isPhone? this.changePage({page: new RepoCategoryView({user: options.user})})
+            : new RepoCategoryView(options);
+      }
     },
     goToRepoPage: function(options) {
       this.isPhone? this.changePage({page: new RepoView({repos: options.repos})})

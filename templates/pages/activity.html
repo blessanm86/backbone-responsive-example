@@ -1,8 +1,5 @@
 {{#if isPhone}}
-<div data-role="header" data-position="fixed">
-  <a href="#" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" id="back-btn">Back</a>
-  <h1>Github Activity</h1>
-</div>
+  {{> header}}
 <div data-role="content">
 {{/if}}
   <table data-role="table" class="ui-responsive table-stroke">
@@ -25,7 +22,5 @@
   </table>
 {{#if isPhone}}
 </div>
-<div data-role="footer" data-position="fixed" data-tap-toggle="false">
-  <h4>Version - 1.0.0</h4>
-</div>
+  {{> footer}}
 {{/if}}

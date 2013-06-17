@@ -29,7 +29,7 @@ define([
     },
     initialize: function(){
       this.collection = new RepoCollection([],{user: this.options.user});
-      this.pageData = {isPhone:Globals.controller.isPhone};
+      this.pageData = {isPhone:Globals.controller.isPhone, header: 'Git Repo Categories'};
       
       //This didnt work for some reason. So using on method.
       //this.listenTo(Globals.events, 'page:destry', this.close);
@@ -69,7 +69,6 @@ define([
       Globals.controller.goToRepoPage({repos: collection, el: '#repos-container'});
     },
     close: function(id) {
-      console.log('RepoCategoryView');
       if(id === this.attributes.id) {
         Globals.events.off('page:destroy',this.close);
         this.undelegateEvents();

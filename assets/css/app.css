@@ -3,6 +3,7 @@
 }
 .home-top-container .inner-container {
   max-height:400px;
+  overflow: auto;
 }
 .ui-input-text {
   display: inline-block;
