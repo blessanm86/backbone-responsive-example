@@ -28,13 +28,13 @@ require([
   'controller',
   'globals',
   'events',
-  'jquerymobile',
   'pageTemplates',
   'partialTemplates',
   'enquire'
 ], function($, _, Backbone, Handlebars, Controller,Globals) {
   //This is to avoid cyclic dependencies in requirejs. controller depends on homeview, homeview depends on controller.
   Globals.controller = Controller;
+  Globals.events = _.clone(Backbone.Events);
   
   Globals.controller.start();
   Globals.controller.goToHomePage();

@@ -1,3 +1,4 @@
 define({
-  controller: undefined
+  controller: undefined,
+  events: undefined
 });

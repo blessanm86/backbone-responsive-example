@@ -1,52 +1,61 @@
 define([
   'backbone',
   'handlebars',
-], function(Backbone, Handlebars) {
+  'globals'
+], function(Backbone, Handlebars, Globals) {
   var RepoView = Backbone.View.extend({
     template: Handlebars.templates.repo,
+    attributes: {
+      'id': 'repo-page',
+      'data-role': 'page',
+      'data-dom-remove': true
+    },
     events :function(){        
       var me = this,
         events = 'ontouchstart' in document ? {
-          'touchstart #all-repos, #source-repos, #fork-repos': function(e){
-            e.preventDefault();
-            me.filterRepos();
+          'touchstart #back-btn': function(e){
+            me.goBackToHomePage();
           }
         } : {
-          'click #all-repos, #source-repos, #fork-repos': 'filterRepos'
+          'click #back-btn': 'goBackToHomePage'
         };
         
       return events;
     },
     initialize: function(){
-      this.getUserRepositories();
+      this.pageData = {isPhone:Globals.controller.isPhone, repos: this.options.repos};
+      
+      //This didnt work for some reason. So using on method.
+      //this.listenTo(Globals.events, 'page:destry', this.close);
+      Globals.events.on("page:destroy", this.close, this);
+      
+      this.render();
     },
     render: function() {
-      this.$el.html(this.template(this.model));
-      $(document).trigger('create');
+      this.$el.html(this.template(this.pageData));
+      
+      //JQM quirk - Need pagecreate event to get the headers and footers right.
+      var event = Globals.controller.isPhone? 'pagecreate' : 'create';
+      this.$el.trigger(event);
       return this;
     },
-    getUserRepositories: function() {
-      var me = this,
-          url = 'https://api.github.com/users/'+this.options.user+'/repos';
-      $.get(url, function(data) {
-        if (data.length) {
-          me.model = me.modelBackUp = {repos:data};
-          me.render();
-        }
-      });
+    goBackToHomePage: function(evt) {
+      evt.preventDefault();
+      Globals.controller.goToHomePage();
     },
-    filterRepos: function(evt) {
-      var filters = {
-        'source-repos': {fork: false},
-        'fork-repos': {fork: true}
+    close: function(id) {
+      console.log('RepoView');
+      if(id === this.attributes.id) {
+        Globals.events.off('page:destroy',this.close);
+        this.undelegateEvents();
+        this.$el.removeData().unbind();
+        if (Globals.controller.isPhone) {
+          this.remove();
+          Backbone.View.prototype.remove.call(this);
+        } else {
+          this.$el.empty();
+        }
       }
-      
-      if (evt.target.id == 'all-repos') {
-        this.model = {repos: this.modelBackUp.repos};
-      } else {
-        this.model = {repos: _.where(this.modelBackUp.repos,filters[evt.target.id])};
-      }      
-      this.render();
     }
   });
   

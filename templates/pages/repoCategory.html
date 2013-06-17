@@ -1,0 +1,18 @@
+{{#if isPhone}}
+<div data-role="header" data-position="fixed">
+  <a href="#" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" id="back-btn">Back</a>
+  <h1>Github Activity</h1>
+</div>
+<div data-role="content">
+{{/if}}
+  <fieldset class="ui-grid-b">
+    <div class="ui-block-a"><button type="submit" data-theme="b" id="all-repos">All</button></div>
+    <div class="ui-block-b"><button type="submit" data-theme="b" id="source-repos">Source's</button></div>
+    <div class="ui-block-c"><button type="submit" data-theme="b" id="fork-repos">Fork's</button></div>
+  </fieldset>
+{{#if isPhone}}
+</div>
+<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+  <h4>Version - 1.0.0</h4>
+</div>
+{{/if}}

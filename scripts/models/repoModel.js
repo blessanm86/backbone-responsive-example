@@ -1,9 +1,9 @@
 define([
   'backbone',
 ], function(Backbone) {
-  var ActivityModel = Backbone.Model.extend({
+  var RepoModel = Backbone.Model.extend({
     defaults: {}
   });
   
-  return ActivityModel;
+  return RepoModel;
 });

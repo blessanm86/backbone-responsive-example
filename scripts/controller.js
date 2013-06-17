@@ -1,8 +1,10 @@
 define([
   'jquerymobile',
   'views/homeView',
-  'views/activityView'
-], function($mobile, HomeView, ActivityView) {
+  'views/activityView',
+  'views/repoCategoryView',
+  'views/repoView'
+], function($mobile, HomeView, ActivityView, RepoCategoryView, RepoView) {
   var Controller = {
     firstPage: true,
     isPhone: false,
@@ -25,8 +27,13 @@ define([
       this.isPhone? this.changePage({page: new ActivityView({user: options.user})})
           : new ActivityView(options);
     },
-    goToRepoPage: function(page, options) {
-      new page(options);
+    goToRepoCategoryPage: function(options) {
+      this.isPhone? this.changePage({page: new RepoCategoryView({user: options.user})})
+          : new RepoCategoryView(options);
+    },
+    goToRepoPage: function(options) {
+      this.isPhone? this.changePage({page: new RepoView({repos: options.repos})})
+          : new RepoView(options);
     },
     changePage: function(options) {
       options.reverse = options.reverse? options.reverse: false;

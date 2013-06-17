@@ -20,8 +20,7 @@ define([
           'touchstart #get-user-activity': function(e){            
             me.getUserActivity();
           },
-          'touchstart #get-user-repositores': function(e){
-            e.preventDefault();
+          'touchstart #get-user-repositores': function(e){            
             me.getUserRepositories();
           }
         } : {
@@ -62,8 +61,11 @@ define([
       evt.preventDefault();
       Globals.controller.goToActivityPage({user: this.input.val(), el: '#events-container'});
     },
-    getUserRepositories: function() {
-      //Controller.goToRepoPage(RepoView,{user: this.input.val(), el: '#repos-container'});
+    getUserRepositories: function(evt) {
+      evt.preventDefault();
+      Globals.events.trigger("page:destroy", 'repo-category-page');
+      Globals.events.trigger("page:destroy", 'repo-page');
+      Globals.controller.goToRepoCategoryPage({user: this.input.val(), el: '#repos-category-container'});
     }
   });
   
