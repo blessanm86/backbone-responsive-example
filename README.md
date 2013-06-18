@@ -93,6 +93,8 @@ There are many examples out there that show the usage of backbone + the other fr
 5. Improve the README if needed.
 
 ##References
+1. [David Possin - Using CSS Media Queries as a Data Transport](http://randomjavascript.blogspot.in/2013/02/using-css-media-queries-as-data.html)
+2. [Christophe Coenraets - Using Backbone.js with jQuery Mobile](http://coenraets.org/blog/2012/03/using-backbone-js-with-jquery-mobile/)
  
 ##Issues Or Contributions
 * If you have an idea to improve the application and its structure, let me know. It will help the community.
