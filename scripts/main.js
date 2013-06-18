@@ -38,5 +38,5 @@ require([
   
   Globals.controller.start();
   Globals.controller.goToHomePage();
-  Backbone.history.start();
+  //Backbone.history.start();
 });
