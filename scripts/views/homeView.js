@@ -2,9 +2,10 @@ define([
   'backbone',
   'handlebars',
   'globals',
+  'models/userModel',
   'views/activityView',
   'views/repoView'
-], function(Backbone, Handlebars, Globals, ActivityView, RepoView) {
+], function(Backbone, Handlebars, Globals, UserModel, ActivityView, RepoView) {
   var HomeView = Backbone.View.extend({
     template: Handlebars.templates.home(),
     attributes: {
@@ -39,23 +40,23 @@ define([
     },
     render: function() {      
       this.$el.html(this.template);
-      //this.setElement(this.template);
       return this;
     },
     findUser: function(evt) {
-      evt.preventDefault();
-      var me = this,
-          url = 'https://api.github.com/legacy/user/search/'+this.input.val();
-      $.get(url, function(data) {
-        if (data.users.length) {
-          me.avatar.attr('src','http://www.gravatar.com/avatar/'+data.users[0].gravatar_id+'?s=200');
-          me.avatarContainer.slideDown();
-        } else {
-          me.avatarContainer.slideUp('slow', function() {
-              alert('No User Found'); 
-          });          
-        }
-      });
+      evt.preventDefault();      
+      this.model = new UserModel({id: this.input.val()});
+      this.listenToOnce(this.model, 'sync', this.showAdditionalButtons);
+      this.model.fetch();
+    },
+    showAdditionalButtons: function() {
+      if(this.model.has('username')) {
+        this.avatar.attr('src','http://www.gravatar.com/avatar/'+this.model.get('gravatar_id')+'?s=200');
+        this.avatarContainer.slideDown();
+      } else {
+        this.avatarContainer.slideUp('slow', function() {
+          alert('No User Found');
+        });
+      }
     },
     getUserActivity: function(evt) {
       evt.preventDefault();
