@@ -1,5 +1,6 @@
 #backbone-responsive-example
 ---
+###[**Live Demo**](http://blessenm.github.io/backbone-responsive-example/)
 
 A trivial example to show the usage of backbone + requirejs + jquery mobile and handlebars for a responsive web app.
  
@@ -90,6 +91,8 @@ There are many examples out there that show the usage of backbone + the other fr
 3. Improve the code wherever possible.
 4. Maybe add marionette js. Should simplify a lot of stuffs.
 5. Improve the README if needed.
+
+##References
  
 ##Issues Or Contributions
 * If you have an idea to improve the application and its structure, let me know. It will help the community.
