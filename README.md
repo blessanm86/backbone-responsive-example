@@ -104,3 +104,6 @@ There are many examples out there that show the usage of backbone + the other fr
 *  Pull requests are welcome.
 *  [__LinkedIn Pofile__](http://in.linkedin.com/pub/blessan-mathew/24/605/730 "LinkedIn Profie")
 *  [__Stack Overflow Pofile__](http://stackoverflow.com/users/548568/blessenm "Stack Overflow Pofile")
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/blessenm/backbone-responsive-example/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
